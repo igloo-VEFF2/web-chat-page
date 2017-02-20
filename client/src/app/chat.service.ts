@@ -40,4 +40,19 @@ export class ChatService {
     return obs;
   }
 
+  addRoom(roomName : string) : Observable<boolean> {
+    const observable = new Observable(observer => {
+      var param = {
+        room: roomName
+      };
+      this.socket.emit("joinroom", param, function(a , boolean) {
+        if(a === true) {
+          observer.next(a);
+        }
+      });
+    });
+    
+    return observable;
+  }
+
 }
