@@ -77,4 +77,18 @@ export class ChatService {
    return obs;
   }
 
+  getConnectedUsers() : Observable<string[]> {
+    let obs = new Observable(observer => {
+      console.log("Getting user list");
+      this.socket.emit("users");
+      this.socket.on("userlist", (lst) => {
+        let strArr: string[] = [];
+        for (var x in lst) {
+          strArr.push(x);
+        }
+      });
+    });
+    return obs;
+  }
+
 }
