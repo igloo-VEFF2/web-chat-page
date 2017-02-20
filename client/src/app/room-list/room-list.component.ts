@@ -23,7 +23,6 @@ export class RoomListComponent implements OnInit {
 
   onNewRoom() {
     if(this.newRoomName.length < 1) {
-
       return;
     }
 

@@ -1,1 +1,10 @@
-<div>The rooms id is: {{roomId}}</div>
+<ul>
+  <li *ngFor="let message of messages">
+    <a>{{message}}</a>
+  </li>
+</ul>
+
+<br>
+
+<input [(ngModel)]="newMessage" />
+<button (click)="onNewMessage()">Send message</button>
