@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from "../chat.service";
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-private-messages',
@@ -8,16 +8,15 @@ import { ChatService } from "../chat.service";
 })
 export class PrivateMessagesComponent implements OnInit {
 
-  constructor(private chatService: ChatService) { }
+  connectedUsers: string[];
+  newMsg: string;
+  receivedMsgs: string[];
 
-  connectedUsers : string[];
-  newMsg : string;
-  receivedMsgs : string[];
+  constructor(private chatService: ChatService) { }
 
   ngOnInit() {
     this.chatService.getConnectedUsers().subscribe(lst => {
       this.connectedUsers = lst;
     });
   }
-
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from "../chat.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ChatService } from '../chat.service';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class RoomComponent implements OnInit {
 
-  roomId : string;
+  roomId: string;
   messages: string[];
   newMessage: string;
 
@@ -26,10 +26,10 @@ export class RoomComponent implements OnInit {
     onNewMessage() {
 
     this.chatService.addMesssage(this.roomId, this.newMessage).subscribe(succeded => {
-      if(succeded === true) {
-        this.router.navigate(["messages", this.newMessage])
+      if (succeded === true) {
+        this.router.navigate(['messages', this.newMessage]);
       }
-    })
+    });
   }
 
 }
